@@ -22,13 +22,12 @@
             height: 60px;
             display: flex;
             align-items: center;
-            justify-content: flex-start; /* Aligns content to the left */
+            justify-content: space-between; /* Space out the logo and hamburger icon */
         }
 
         header img {
             height: 50px; /* Increased logo size */
             cursor: pointer;
-            margin-right: 25px; /* More space between logo and title */
         }
 
         header h1 {
@@ -38,11 +37,12 @@
             font-family: 'Poppins', sans-serif;
         }
 
-        /* Navigation Style */
+        /* Navigation Bar Below the Header */
         nav {
             background-color: #90EE90; /* Light green background for the menu */
             padding: 10px 20px; /* Add padding for spacing */
             box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+            display: none; /* Hide menu by default */
         }
 
         .menu-items {
@@ -64,7 +64,7 @@
 
         /* Mobile Menu (Hamburger) */
         .mobile-menu {
-            display: none;
+            cursor: pointer;
         }
 
         /* Responsive Design for Mobile */
@@ -72,6 +72,11 @@
             .menu-items {
                 display: none; /* Hide menu links by default on small screens */
             }
+
+            nav.active {
+                display: block; /* Show menu when active */
+            }
+
             .mobile-menu {
                 display: block; /* Show hamburger icon */
             }
@@ -84,18 +89,16 @@
     <header>
         <img src="EM Logo.png" alt="EliteModder Logo"> <!-- Logo on the left -->
         <h1>EliteModder</h1>
+        <!-- Mobile Menu Icon (Hamburger) on the right -->
+        <img src="NavigationBar.png" class="mobile-menu" alt="Navigation Menu" onclick="toggleMenu()">
     </header>
 
     <!-- Navigation Bar Below the Header -->
-    <nav>
-        <div class="menu-items">
-            <a href="#" onclick="setActive('Home')">Home</a>
-            <a href="#" onclick="setActive('Games')">Games</a>
-            <a href="#" onclick="setActive('Mods')">Mods</a>
-            <a href="#" onclick="setActive('Plugins')">Plugins</a>
-        </div>
-        <!-- Mobile Menu Icon (Hamburger) -->
-        <img src="NavigationBar.png" class="mobile-menu" alt="Navigation Menu" onclick="toggleMenu()">
+    <nav class="menu-items">
+        <a href="#" onclick="setActive('Home')">Home</a>
+        <a href="#" onclick="setActive('Games')">Games</a>
+        <a href="#" onclick="setActive('Mods')">Mods</a>
+        <a href="#" onclick="setActive('Plugins')">Plugins</a>
     </nav>
 
     <script>
@@ -106,15 +109,15 @@
 
         // Toggle the mobile menu visibility when hamburger icon is clicked
         function toggleMenu() {
-            var menu = document.querySelector('.menu-items');
-            menu.classList.toggle('active');
+            var nav = document.querySelector('nav');
+            nav.classList.toggle('active');
         }
 
         // Close the mobile menu when the window is resized back to large
         window.addEventListener('resize', function() {
             if (window.innerWidth > 768) {
-                var menu = document.querySelector('.menu-items');
-                menu.classList.remove('active');
+                var nav = document.querySelector('nav');
+                nav.classList.remove('active');
             }
         });
     </script>
