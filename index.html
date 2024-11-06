@@ -22,47 +22,54 @@
             height: 60px;
             display: flex;
             align-items: center;
-            justify-content: space-between; /* Space out the logo and navigation */
+            justify-content: space-between;
             position: relative;
-            z-index: 2; /* Ensure header is above other content */
+            z-index: 2;
         }
 
-        header img {
-            height: 50px; /* Logo size */
+        /* Logo and Title on the Left */
+        .header-left {
+            display: flex;
+            align-items: center;
+            gap: 15px; /* Space between logo and title */
+        }
+
+        .header-left img {
+            height: 50px;
             cursor: pointer;
         }
 
-        header h1 {
+        .header-left h1 {
             font-weight: bold;
             margin: 0;
-            font-size: 36px;
+            font-size: 30px; /* Adjusted font size for title */
             font-family: 'Poppins', sans-serif;
         }
 
         /* Desktop Navigation Style in Header */
         .desktop-nav {
             display: flex;
-            gap: 40px; /* Space between each option */
+            gap: 50px; /* Increased space between options */
         }
 
         .desktop-nav a {
             text-decoration: none;
             color: white;
             font-weight: bold;
-            font-size: 20px;
+            font-size: 24px; /* Increased font size */
         }
 
         /* Mobile Dropdown Menu */
         nav {
-            background-color: #90EE90; /* Light green background for the dropdown */
+            background-color: #90EE90;
             box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
-            display: none; /* Hidden by default */
+            display: none;
             flex-direction: column;
             position: absolute;
             top: 60px;
             left: 0;
             width: 100%;
-            padding: 20px 0; /* Vertical padding */
+            padding: 20px 0;
             z-index: 1;
             align-items: center;
         }
@@ -71,29 +78,28 @@
             text-decoration: none;
             color: #333;
             font-weight: bold;
-            font-size: 24px;
-            padding: 10px;
-            width: 100%; /* Make links take full width */
+            font-size: 26px; /* Larger font size */
+            padding: 15px 0; /* More vertical space between menu items */
+            width: 100%;
             text-align: center;
         }
 
         /* Mobile Menu Icon (Hamburger) */
         .mobile-menu {
-            display: none; /* Hidden by default */
+            display: none;
             cursor: pointer;
         }
 
         /* Responsive Design for Mobile */
         @media (max-width: 768px) {
-            /* Show hamburger icon and hide desktop nav on smaller screens */
             .mobile-menu {
-                display: block; /* Show hamburger */
+                display: block;
             }
             .desktop-nav {
-                display: none; /* Hide desktop nav */
+                display: none;
             }
             nav.active {
-                display: flex; /* Show dropdown menu */
+                display: flex;
             }
         }
 
@@ -102,8 +108,11 @@
 <body>
     <!-- Header with Logo, Title, and Navigation -->
     <header>
-        <img src="EM Logo.png" alt="EliteModder Logo"> <!-- Logo on the left -->
-        <h1>EliteModder</h1>
+        <!-- Left section for Logo and Title -->
+        <div class="header-left">
+            <img src="EM Logo.png" alt="EliteModder Logo">
+            <h1>EliteModder</h1>
+        </div>
 
         <!-- Desktop Navigation Options (Visible on Larger Screens) -->
         <div class="desktop-nav">
@@ -127,7 +136,6 @@
 
     <script>
         function setActive(page) {
-            // You can use this function to update content dynamically based on the clicked menu item.
             console.log(page + " page clicked");
         }
 
