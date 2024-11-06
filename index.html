@@ -22,13 +22,13 @@
             height: 60px;
             display: flex;
             align-items: center;
-            justify-content: space-between; /* Space out the logo and hamburger icon */
+            justify-content: space-between; /* Space out the logo and navigation */
             position: relative;
             z-index: 2; /* Ensure header is above other content */
         }
 
         header img {
-            height: 50px; /* Increased logo size */
+            height: 50px; /* Logo size */
             cursor: pointer;
         }
 
@@ -39,59 +39,61 @@
             font-family: 'Poppins', sans-serif;
         }
 
-        /* Navigation Menu Positioned Directly Below the Header */
-        nav {
-            background-color: #90EE90; /* Light green background for the menu */
-            padding: 20px 0; /* Add padding for spacing */
-            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
-            display: none; /* Hide menu by default */
-            flex-direction: column; /* Align menu items vertically */
-            position: absolute;
-            top: 60px; /* Aligns it directly below the header */
-            left: 0;
-            width: 100%;
-            z-index: 1; /* Ensures the menu is below the header but above other content */
-            min-height: 300px; /* Makes the menu extend further down */
-            align-items: center; /* Centers the menu content */
-        }
-
-        .menu-items {
+        /* Desktop Navigation Style in Header */
+        .desktop-nav {
             display: flex;
-            flex-direction: column; /* Make the links stack vertically */
-            align-items: center; /* Center the items */
+            gap: 40px; /* Space between each option */
         }
 
-        nav a {
+        .desktop-nav a {
             text-decoration: none;
             color: white;
             font-weight: bold;
-            font-size: 28px; /* Larger font size for navigation items */
-            padding: 20px; /* Increase padding for more space */
-            width: 100%; /* Make the links take full width */
+            font-size: 20px;
+        }
+
+        /* Mobile Dropdown Menu */
+        nav {
+            background-color: #90EE90; /* Light green background for the dropdown */
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+            display: none; /* Hidden by default */
+            flex-direction: column;
+            position: absolute;
+            top: 60px;
+            left: 0;
+            width: 100%;
+            padding: 20px 0; /* Vertical padding */
+            z-index: 1;
+            align-items: center;
+        }
+
+        .menu-items a {
+            text-decoration: none;
+            color: #333;
+            font-weight: bold;
+            font-size: 24px;
+            padding: 10px;
+            width: 100%; /* Make links take full width */
             text-align: center;
         }
 
-        nav a:hover {
-            text-decoration: underline;
-        }
-
-        /* Mobile Menu (Hamburger) */
+        /* Mobile Menu Icon (Hamburger) */
         .mobile-menu {
+            display: none; /* Hidden by default */
             cursor: pointer;
         }
 
         /* Responsive Design for Mobile */
         @media (max-width: 768px) {
-            .menu-items {
-                display: none; /* Hide menu links by default on small screens */
-            }
-
-            nav.active {
-                display: flex; /* Show menu when active */
-            }
-
+            /* Show hamburger icon and hide desktop nav on smaller screens */
             .mobile-menu {
-                display: block; /* Show hamburger icon */
+                display: block; /* Show hamburger */
+            }
+            .desktop-nav {
+                display: none; /* Hide desktop nav */
+            }
+            nav.active {
+                display: flex; /* Show dropdown menu */
             }
         }
 
@@ -102,11 +104,20 @@
     <header>
         <img src="EM Logo.png" alt="EliteModder Logo"> <!-- Logo on the left -->
         <h1>EliteModder</h1>
+
+        <!-- Desktop Navigation Options (Visible on Larger Screens) -->
+        <div class="desktop-nav">
+            <a href="#" onclick="setActive('Home')">Home</a>
+            <a href="#" onclick="setActive('Games')">Games</a>
+            <a href="#" onclick="setActive('Mods')">Mods</a>
+            <a href="#" onclick="setActive('Plugins')">Plugins</a>
+        </div>
+
         <!-- Mobile Menu Icon (Hamburger) on the right -->
         <img src="NavigationBar.png" class="mobile-menu" alt="Navigation Menu" onclick="toggleMenu()">
     </header>
 
-    <!-- Navigation Bar Below the Header -->
+    <!-- Dropdown Menu for Mobile -->
     <nav class="menu-items">
         <a href="#" onclick="setActive('Home')">Home</a>
         <a href="#" onclick="setActive('Games')">Games</a>
