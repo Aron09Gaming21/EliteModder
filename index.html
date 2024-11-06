@@ -23,6 +23,8 @@
             display: flex;
             align-items: center;
             justify-content: space-between; /* Space out the logo and hamburger icon */
+            position: relative;
+            z-index: 2; /* Ensure header is above other content */
         }
 
         header img {
@@ -37,18 +39,18 @@
             font-family: 'Poppins', sans-serif;
         }
 
-        /* Navigation Bar Below the Header */
+        /* Navigation Menu Positioned Directly Below the Header */
         nav {
             background-color: #90EE90; /* Light green background for the menu */
-            padding: 10px 20px; /* Add padding for spacing */
+            padding: 10px 20px;
             box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
             display: none; /* Hide menu by default */
             flex-direction: column; /* Align menu items vertically */
             position: absolute;
-            top: 60px; /* Position it just below the header */
+            top: 60px; /* Aligns it directly below the header */
             left: 0;
             width: 100%;
-            z-index: 1; /* Ensure it's above other content */
+            z-index: 1; /* Ensures the menu is below the header but above other content */
         }
 
         .menu-items {
@@ -61,7 +63,7 @@
             text-decoration: none;
             color: white;
             font-weight: bold;
-            font-size: 24px; /* Slightly bigger font size for navigation items */
+            font-size: 24px;
             padding: 10px;
             width: 100%; /* Make the links take full width */
             text-align: center;
