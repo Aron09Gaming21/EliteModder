@@ -137,7 +137,12 @@
 
         function toggleDropdown() {
             const mobileNav = document.getElementById("mobileNav");
-            mobileNav.style.display = mobileNav.style.display === "flex" ? "none" : "flex";
+            // Toggle the mobile navigation visibility
+            if (mobileNav.style.display === "flex") {
+                mobileNav.style.display = "none";  // Close menu
+            } else {
+                mobileNav.style.display = "flex";  // Open menu
+            }
         }
 
         // Adjust visibility based on window size
@@ -157,7 +162,7 @@
                 navIcon.style.display = "none";     // Hide the navigation icon
             } else {
                 desktopNav.style.display = "none";  // Hide desktop nav
-                mobileNav.style.display = "flex";   // Show mobile nav
+                mobileNav.style.display = "none";   // Hide mobile nav (by default)
                 navIcon.style.display = "block";    // Show the navigation icon
             }
         }
