@@ -13,6 +13,8 @@
             color: #333;
             margin: 0;
         }
+
+        /* Header Style */
         header {
             background: #0096FF; /* Blue header */
             color: white;
@@ -22,60 +24,67 @@
             align-items: center;
             justify-content: flex-start; /* Aligns content to the left */
         }
+
         header img {
-            height: 50px; /* Same size for both logos */
+            height: 50px; /* Increased logo size */
             cursor: pointer;
             margin-right: 25px; /* More space between logo and title */
         }
+
         header h1 {
             font-weight: bold;
             margin: 0;
             font-size: 36px;
             font-family: 'Poppins', sans-serif;
         }
+
+        /* Navigation Style */
         nav {
             display: flex;
             gap: 60px; /* Increased space between the navigation links */
             margin-left: 50px; /* Moves the navigation links further to the right */
         }
+
         nav a {
             text-decoration: none;
             color: white;
             font-weight: bold;
             font-size: 24px; /* Slightly bigger font size for navigation items */
         }
+
         nav a:hover {
             text-decoration: underline;
         }
 
-        /* Mobile Menu */
+        /* Mobile Menu (Hamburger) */
         .mobile-menu {
             display: none;
         }
+
         .menu-items {
             display: flex;
-            justify-content: space-between; /* Spread the menu items from left to right */
-            background-color: #90EE90; /* Light green background */
-            width: 100%; /* Make the menu span the entire width */
+            gap: 60px; /* Space between menu items */
+        }
+
+        /* Toggle menu visibility (when mobile menu is active) */
+        .menu-items.active {
+            display: block;
+            position: absolute;
+            top: 60px;
+            left: 0;
+            width: 100%;
+            background-color: #0096FF;
             box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
             z-index: 1;
-            padding: 10px 0; /* Padding for vertical space */
         }
 
-        .menu-items a {
-            text-decoration: none;
-            color: #333;
-            font-weight: bold;
-            font-size: 24px; /* Larger font size for the menu items */
-            padding: 10px 20px;
+        .menu-items.active a {
+            padding: 10px;
+            text-align: center;
+            display: block;
         }
 
-        .menu-items a:hover {
-            background-color: #007acc;
-            color: white;
-        }
-
-        /* Mobile version - hide menu and show hamburger icon */
+        /* Responsive Design for Mobile */
         @media (max-width: 768px) {
             .menu-items {
                 display: none; /* Hide menu links by default on small screens */
@@ -84,9 +93,11 @@
                 display: block; /* Show hamburger icon */
             }
         }
+
     </style>
 </head>
 <body>
+    <!-- Header with Logo, Title, and Navigation -->
     <header>
         <img src="EM Logo.png" alt="EliteModder Logo"> <!-- Logo on the left -->
         <h1>EliteModder</h1>
@@ -108,7 +119,7 @@
             console.log(page + " page clicked");
         }
 
-        // Toggle the mobile menu visibility
+        // Toggle the mobile menu visibility when hamburger icon is clicked
         function toggleMenu() {
             var menu = document.querySelector('.menu-items');
             menu.classList.toggle('active');
