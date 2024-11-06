@@ -5,48 +5,43 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>EliteModder</title>
-    <link rel="icon" href="EM Logo.png" type="image/png"> <!-- Add this line for favicon -->
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@600;700&display=swap" rel="stylesheet">
+    <link rel="icon" href="EM Logo.png" type="image/png">
     <style>
         /* General Styles */
         body {
             font-family: 'Poppins', sans-serif;
             margin: 0;
             padding: 0;
-            background-color: #f9f9f9;
+            background-color: #00bfff; /* Light Blue Background */
             color: #333;
             text-align: center;
         }
 
         /* Header Styles */
         header {
-            background: linear-gradient(45deg, #0096FF, #00bfff);
-            color: white;
-            padding: 10px 0;
-            position: relative;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background-color: #00bfff; /* Light Blue Background */
+            padding: 20px;
         }
 
-        header h1 {
-            margin: 0;
+        /* Logo */
+        #logo {
+            margin-left: 20px;
+        }
+
+        /* Title */
+        h1 {
             font-size: 36px;
-            animation: gradientMove 2s infinite alternate;
-        }
-
-        @keyframes gradientMove {
-            0% {
-                background-position: 0% 50%;
-            }
-
-            100% {
-                background-position: 100% 50%;
-            }
+            color: white;
+            margin: 0;
         }
 
         /* Navigation Bar */
         #navbar {
             display: flex;
             justify-content: center;
-            margin-top: 10px;
             background-color: #e54ed0;
             border-radius: 5px;
             padding: 10px 0;
@@ -66,93 +61,24 @@
             background-color: #333;
         }
 
-        /* Hero Section */
-        #hero {
-            background-color: #00bfff; /* Light blue background */
-            padding: 60px 20px;
-            color: white;
-            text-align: center;
-            border-bottom: 5px solid #0096FF;
-            animation: fadeIn 1.5s;
-        }
-
-        @keyframes fadeIn {
-            from {
-                opacity: 0;
-            }
-
-            to {
-                opacity: 1;
-            }
-        }
-
-        #hero h2 {
-            font-size: 48px;
-            margin: 0;
-        }
-
-        #hero p {
-            font-size: 20px;
-            margin: 20px 0;
-        }
-
-        #hero button {
-            background-color: #ff7300;
-            color: white;
-            padding: 10px 20px;
-            font-size: 20px;
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
-            transition: background-color 0.3s;
-        }
-
-        #hero button:hover {
-            background-color: #e76f00;
-        }
-
-        /* Main Content Styles */
-        main {
-            padding: 20px;
-        }
-
-        /* Footer Styles */
-        footer {
-            background-color: #0096FF;
-            color: white;
-            padding: 10px 0;
-            position: relative;
-            bottom: 0;
-            width: 100%;
-        }
     </style>
 </head>
 
 <body>
+
+    <!-- Header Section -->
     <header>
+        <img id="logo" src="NavigationBar.png" alt="NavigationBar Logo" width="150">
         <h1>EliteModder</h1>
-        <nav id="navbar">
-            <a href="#" onclick="setActive(this, 'Home')">Home</a>
-            <a href="#" onclick="setActive(this, 'Games')">Games</a>
-            <a href="#" onclick="setActive(this, 'Mods')">Mods</a>
-            <a href="#" onclick="setActive(this, 'Plugins')">Plugins</a>
-        </nav>
     </header>
 
-    <!-- Hero Section -->
-    <section id="hero">
-        <h2>Welcome to EliteModder!</h2>
-        <p>Join our vibrant community of gamers and modders. Discover amazing games, explore custom mods, and enhance your gameplay with our premium and free plugins!</p>
-        <button onclick="setActive(this, 'Games')">Shop Now</button>
-    </section>
-
-    <main id="content">
-        <p>EliteModder is your ultimate destination for the best games, mods, and plugins that elevate your gaming experience!</p>
-    </main>
-
-    <footer>
-        <p>&copy; 2024 EliteModder by Aron09Gaming21</p>
-    </footer>
+    <!-- Navigation Menu -->
+    <nav id="navbar">
+        <a href="#" onclick="setActive(this, 'Home')">Home</a>
+        <a href="#" onclick="setActive(this, 'Games')">Games</a>
+        <a href="#" onclick="setActive(this, 'Mods')">Mods</a>
+        <a href="#" onclick="setActive(this, 'Plugins')">Plugins</a>
+    </nav>
 
     <script>
         // Set active menu item and update page content
@@ -162,20 +88,9 @@
                 item.style.backgroundColor = ''; // Reset background
             });
             element.style.backgroundColor = '#333'; // Set active background
-
-            // Update main content based on the selected page
-            const content = document.getElementById("content");
-            if (page === "Home") {
-                content.innerHTML = "<p>Welcome to EliteModder! Join our vibrant community of gamers and modders. Discover amazing games, explore custom mods, and enhance your gameplay with our premium and free plugins!</p>";
-            } else if (page === "Games") {
-                content.innerHTML = "<p>Welcome to the Games page. Discover new games and game-related content here.</p>";
-            } else if (page === "Mods") {
-                content.innerHTML = "<p>Welcome to the Mods page. Explore a variety of mods to enhance your gaming experience.</p>";
-            } else if (page === "Plugins") {
-                content.innerHTML = "<p>Welcome to the Plugins page. Find plugins and tools to customize your games.</p>";
-            }
         }
     </script>
+
 </body>
 
 </html>
