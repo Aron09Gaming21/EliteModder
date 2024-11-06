@@ -40,9 +40,15 @@
 
         /* Navigation Style */
         nav {
+            background-color: #90EE90; /* Light green background for the menu */
+            padding: 10px 20px; /* Add padding for spacing */
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+        }
+
+        .menu-items {
             display: flex;
+            justify-content: center; /* Center the navigation links */
             gap: 60px; /* Increased space between the navigation links */
-            margin-left: 50px; /* Moves the navigation links further to the right */
         }
 
         nav a {
@@ -59,30 +65,6 @@
         /* Mobile Menu (Hamburger) */
         .mobile-menu {
             display: none;
-        }
-
-        .menu-items {
-            display: flex;
-            gap: 60px; /* Space between menu items */
-        }
-
-        /* Toggle menu visibility (when mobile menu is active) */
-        .menu-items.active {
-            display: block;
-            position: absolute;
-            top: 60px; /* Ensure the menu appears directly below the header */
-            left: 0;
-            width: 100%;
-            background-color: #90EE90; /* Light green background for the menu */
-            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
-            z-index: 1;
-        }
-
-        .menu-items.active a {
-            padding: 10px;
-            text-align: center;
-            display: block;
-            color: #333; /* Text color for the menu items */
         }
 
         /* Responsive Design for Mobile */
@@ -102,17 +84,19 @@
     <header>
         <img src="EM Logo.png" alt="EliteModder Logo"> <!-- Logo on the left -->
         <h1>EliteModder</h1>
-        <nav>
-            <div class="menu-items">
-                <a href="#" onclick="setActive('Home')">Home</a>
-                <a href="#" onclick="setActive('Games')">Games</a>
-                <a href="#" onclick="setActive('Mods')">Mods</a>
-                <a href="#" onclick="setActive('Plugins')">Plugins</a>
-            </div>
-            <!-- Mobile Menu Icon (Hamburger) -->
-            <img src="NavigationBar.png" class="mobile-menu" alt="Navigation Menu" onclick="toggleMenu()">
-        </nav>
     </header>
+
+    <!-- Navigation Bar Below the Header -->
+    <nav>
+        <div class="menu-items">
+            <a href="#" onclick="setActive('Home')">Home</a>
+            <a href="#" onclick="setActive('Games')">Games</a>
+            <a href="#" onclick="setActive('Mods')">Mods</a>
+            <a href="#" onclick="setActive('Plugins')">Plugins</a>
+        </div>
+        <!-- Mobile Menu Icon (Hamburger) -->
+        <img src="NavigationBar.png" class="mobile-menu" alt="Navigation Menu" onclick="toggleMenu()">
+    </nav>
 
     <script>
         function setActive(page) {
