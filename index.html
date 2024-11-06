@@ -75,18 +75,20 @@
             background-color: #004080; /* Dark Blue color */
             width: 100%; /* Full width */
             text-align: center;
-            padding: 10px 0;
+            padding: 0; /* No extra padding for a horizontal bar */
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
             z-index: 1000;
+            height: 60px; /* Set a fixed height similar to the header */
         }
 
         .dropdown-menu a {
             display: inline-block;
             color: white;
-            padding: 15px 25px; /* Larger padding for bigger buttons */
+            padding: 20px 30px; /* Larger padding for bigger buttons */
             text-decoration: none;
             font-size: 24px;
             font-weight: bold;
+            text-align: center;
         }
 
         .dropdown-menu a:hover {
