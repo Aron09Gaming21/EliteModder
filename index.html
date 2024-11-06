@@ -35,7 +35,7 @@
         }
         nav {
             display: flex;
-            gap: 60px; /* Increased space even more between the navigation links */
+            gap: 60px; /* Increased space between the navigation links */
             margin-left: 50px; /* Moves the navigation links further to the right */
         }
         nav a {
@@ -47,6 +47,42 @@
         nav a:hover {
             text-decoration: underline;
         }
+
+        /* Hide navigation links and show the hamburger icon on small screens */
+        .mobile-menu {
+            display: none;
+        }
+        .menu-items {
+            display: flex;
+            gap: 60px;
+        }
+
+        /* Toggle menu visibility */
+        .menu-items.active {
+            display: block;
+            position: absolute;
+            top: 60px;
+            left: 0;
+            width: 100%;
+            background-color: #0096FF;
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+            z-index: 1;
+        }
+        .menu-items.active a {
+            padding: 10px;
+            text-align: center;
+            display: block;
+        }
+
+        /* Responsive Design for Mobile */
+        @media (max-width: 768px) {
+            .menu-items {
+                display: none; /* Hide menu links by default on small screens */
+            }
+            .mobile-menu {
+                display: block; /* Show hamburger icon */
+            }
+        }
     </style>
 </head>
 <body>
@@ -54,10 +90,14 @@
         <img src="EM Logo.png" alt="EliteModder Logo"> <!-- Logo on the left -->
         <h1>EliteModder</h1>
         <nav>
-            <a href="#" onclick="setActive('Home')">Home</a>
-            <a href="#" onclick="setActive('Games')">Games</a>
-            <a href="#" onclick="setActive('Mods')">Mods</a>
-            <a href="#" onclick="setActive('Plugins')">Plugins</a>
+            <div class="menu-items">
+                <a href="#" onclick="setActive('Home')">Home</a>
+                <a href="#" onclick="setActive('Games')">Games</a>
+                <a href="#" onclick="setActive('Mods')">Mods</a>
+                <a href="#" onclick="setActive('Plugins')">Plugins</a>
+            </div>
+            <!-- Mobile Menu Icon (Hamburger) -->
+            <img src="NavigationBar.png" class="mobile-menu" alt="Navigation Menu" onclick="toggleMenu()">
         </nav>
     </header>
 
@@ -66,6 +106,20 @@
             // You can use this function to update content dynamically based on the clicked menu item.
             console.log(page + " page clicked");
         }
+
+        // Toggle the mobile menu visibility
+        function toggleMenu() {
+            var menu = document.querySelector('.menu-items');
+            menu.classList.toggle('active');
+        }
+
+        // Close the mobile menu when the window is resized back to large
+        window.addEventListener('resize', function() {
+            if (window.innerWidth > 768) {
+                var menu = document.querySelector('.menu-items');
+                menu.classList.remove('active');
+            }
+        });
     </script>
 </body>
 </html>
