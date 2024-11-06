@@ -26,11 +26,12 @@
             position: relative;
         }
 
-        /* Logo and Title */
+        /* Logo and Title Container (Left Side) */
         .header-left {
             display: flex;
             align-items: center;
             gap: 15px;
+            flex-grow: 1; /* Ensure this section takes up remaining space */
         }
 
         .header-left img {
@@ -45,6 +46,14 @@
             font-family: 'Poppins', sans-serif;
         }
 
+        /* Navigation Icon (on the right of EliteModder) */
+        .nav-icon {
+            height: 60px; /* Icon size */
+            cursor: pointer;
+            margin-left: 20px; /* Space between EliteModder and icon */
+            display: block; /* Show the icon on all screen sizes */
+        }
+
         /* Desktop Navigation */
         .desktop-nav {
             display: flex;
@@ -56,14 +65,6 @@
             color: white;
             font-weight: bold;
             font-size: 28px; /* Increased font size */
-        }
-
-        /* Navigation Icon (right side) */
-        .nav-icon {
-            height: 60px; /* Increased icon size */
-            cursor: pointer;
-            margin-left: 30px; /* Moved to the right */
-            display: none; /* Initially hidden */
         }
 
         /* Dropdown Menu Style */
@@ -113,15 +114,7 @@
             <h1>EliteModder</h1>
         </div>
 
-        <!-- Desktop Navigation Options (Visible on Larger Screens) -->
-        <div class="desktop-nav" id="desktopNav">
-            <a href="#" onclick="setActive('Home')">Home</a>
-            <a href="#" onclick="setActive('Games')">Games</a>
-            <a href="#" onclick="setActive('Mods')">Mods</a>
-            <a href="#" onclick="setActive('Plugins')">Plugins</a>
-        </div>
-
-        <!-- Navigation Icon for Dropdown Menu on Smaller Screens -->
+        <!-- Navigation Icon for Dropdown Menu on the right of EliteModder -->
         <img src="NavigationBar.png" alt="Menu Icon" class="nav-icon" id="navIcon" onclick="toggleDropdown()">
 
         <!-- Dropdown Menu (Initially Hidden) -->
