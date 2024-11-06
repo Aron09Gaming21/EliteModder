@@ -19,7 +19,7 @@
             background: #0096FF;
             color: white;
             padding: 10px 20px;
-            height: 60px; /* Keeps the header compact */
+            height: 60px;
             display: flex;
             align-items: center;
             justify-content: space-between;
@@ -30,7 +30,7 @@
         .header-left {
             display: flex;
             align-items: center;
-            gap: 15px; /* Space between logo and title */
+            gap: 15px;
         }
 
         .header-left img {
@@ -58,10 +58,43 @@
             font-size: 24px;
         }
 
+        /* Navigation Icon (right side) */
+        .nav-icon {
+            height: 40px;
+            cursor: pointer;
+            margin-left: 15px;
+        }
+
+        /* Dropdown Menu Style */
+        .dropdown-menu {
+            display: none;
+            position: absolute;
+            top: 60px;
+            right: 20px;
+            background-color: #0096FF;
+            border-radius: 5px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            width: 150px;
+            z-index: 1000;
+        }
+
+        .dropdown-menu a {
+            display: block;
+            color: white;
+            padding: 10px;
+            text-decoration: none;
+            font-size: 20px;
+            text-align: center;
+        }
+
+        .dropdown-menu a:hover {
+            background-color: #007acc;
+        }
+
         /* Responsive Design for Smaller Screens */
         @media (max-width: 768px) {
             .desktop-nav {
-                display: none; /* Hide desktop nav on small screens */
+                display: none;
             }
         }
     </style>
@@ -82,11 +115,36 @@
             <a href="#" onclick="setActive('Mods')">Mods</a>
             <a href="#" onclick="setActive('Plugins')">Plugins</a>
         </div>
+
+        <!-- Navigation Icon for Dropdown Menu on Smaller Screens -->
+        <img src="NavigationBar.png" alt="Menu Icon" class="nav-icon" onclick="toggleDropdown()">
+
+        <!-- Dropdown Menu (Initially Hidden) -->
+        <div class="dropdown-menu" id="dropdownMenu">
+            <a href="#" onclick="setActive('Home')">Home</a>
+            <a href="#" onclick="setActive('Games')">Games</a>
+            <a href="#" onclick="setActive('Mods')">Mods</a>
+            <a href="#" onclick="setActive('Plugins')">Plugins</a>
+        </div>
     </header>
 
     <script>
         function setActive(page) {
             console.log(page + " page clicked");
+        }
+
+        function toggleDropdown() {
+            // Toggle the display of the dropdown menu
+            const dropdownMenu = document.getElementById("dropdownMenu");
+            dropdownMenu.style.display = dropdownMenu.style.display === "block" ? "none" : "block";
+        }
+
+        // Close dropdown if clicked outside
+        window.onclick = function(event) {
+            const dropdownMenu = document.getElementById("dropdownMenu");
+            if (!event.target.matches('.nav-icon')) {
+                dropdownMenu.style.display = "none";
+            }
         }
     </script>
 </body>
