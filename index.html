@@ -1,96 +1,29 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>EliteModder</title>
-    <link rel="icon" href="EM Logo.png" type="image/png">
+    <!-- Adding a favicon (tab icon) -->
+    <link rel="icon" type="image/png" href="EM Logo.png">
     <style>
-        /* General Styles */
         body {
-            font-family: 'Poppins', sans-serif;
+            background-color: lightblue; /* Set the background color to light blue */
             margin: 0;
-            padding: 0;
-            background-color: #00bfff; /* Light Blue Background */
-            color: #333;
-            text-align: center;
-        }
-
-        /* Header Styles */
-        header {
+            height: 100vh; /* Make sure the body covers the full viewport height */
             display: flex;
-            justify-content: space-between;
-            align-items: center;
-            background-color: #00bfff; /* Light Blue Background */
-            padding: 20px;
+            justify-content: center; /* Center horizontally */
+            align-items: center; /* Center vertically */
+            font-family: Arial, sans-serif;
         }
 
-        /* Logo */
-        #logo {
-            margin-left: 20px;
-        }
-
-        /* Title */
         h1 {
-            font-size: 36px;
-            color: white;
-            margin: 0;
+            font-size: 3em; /* Set the font size */
+            color: darkblue; /* Dark blue color for the text */
         }
-
-        /* Navigation Bar */
-        #navbar {
-            display: flex;
-            justify-content: center;
-            background-color: #e54ed0;
-            border-radius: 5px;
-            padding: 10px 0;
-        }
-
-        #navbar a {
-            color: white;
-            text-decoration: none;
-            font-weight: bold;
-            padding: 10px 15px;
-            margin: 0 10px;
-            border-radius: 5px;
-            transition: background-color 0.3s;
-        }
-
-        #navbar a:hover {
-            background-color: #333;
-        }
-
     </style>
 </head>
-
 <body>
-
-    <!-- Header Section -->
-    <header>
-        <img id="logo" src="NavigationBar.png" alt="NavigationBar Logo" width="150">
-        <h1>EliteModder</h1>
-    </header>
-
-    <!-- Navigation Menu -->
-    <nav id="navbar">
-        <a href="#" onclick="setActive(this, 'Home')">Home</a>
-        <a href="#" onclick="setActive(this, 'Games')">Games</a>
-        <a href="#" onclick="setActive(this, 'Mods')">Mods</a>
-        <a href="#" onclick="setActive(this, 'Plugins')">Plugins</a>
-    </nav>
-
-    <script>
-        // Set active menu item and update page content
-        function setActive(element, page) {
-            const items = document.querySelectorAll("#navbar a");
-            items.forEach(function(item) {
-                item.style.backgroundColor = ''; // Reset background
-            });
-            element.style.backgroundColor = '#333'; // Set active background
-        }
-    </script>
-
+    <h1>EliteModder</h1>
 </body>
-
 </html>
