@@ -46,15 +46,7 @@
             font-family: 'Poppins', sans-serif;
         }
 
-        /* Navigation Icon (on the right of EliteModder) */
-        .nav-icon {
-            height: 40px; /* Adjust icon size */
-            cursor: pointer;
-            margin-left: 20px; /* Space between EliteModder and icon */
-            display: none; /* Hide by default */
-        }
-
-        /* Desktop Navigation */
+        /* Desktop Navigation (in the header) */
         .desktop-nav {
             display: flex;
             gap: 60px; /* Increased space between options */
@@ -67,32 +59,26 @@
             font-size: 28px; /* Increased font size */
         }
 
-        /* Horizontal Dropdown Menu for Small Screens (Visible below the header) */
-        .dropdown-menu {
-            display: none;
-            position: relative;
-            top: 0;
-            background-color: #004080; /* Dark Blue color */
-            width: 100%; /* Full width */
-            text-align: center;
-            padding: 0; /* No extra padding for a horizontal bar */
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-            z-index: 1000;
-            height: 60px; /* Set a fixed height similar to the header */
+        /* New Menu Style Below the Header */
+        .main-menu {
+            background-color: #0096FF;
+            padding: 15px 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 60px;
+            height: 60px;  /* Slightly longer than the header */
         }
 
-        .dropdown-menu a {
-            display: inline-block;
-            color: white;
-            padding: 20px 30px; /* Larger padding for bigger buttons */
+        .main-menu a {
             text-decoration: none;
-            font-size: 24px;
+            color: white;
             font-weight: bold;
-            text-align: center;
+            font-size: 24px;
         }
 
-        .dropdown-menu a:hover {
-            background-color: #003366; /* Darker blue on hover */
+        .main-menu a:hover {
+            text-decoration: underline;
         }
 
         /* Responsive Design for Smaller Screens */
@@ -103,6 +89,18 @@
 
             .nav-icon {
                 display: block; /* Show the navigation icon on small screens */
+            }
+
+            /* Adjust the layout of the menu for smaller screens */
+            .main-menu {
+                flex-direction: column;
+                gap: 10px;
+                height: auto;
+                padding: 10px;
+            }
+
+            .main-menu a {
+                font-size: 20px;
             }
         }
     </style>
@@ -126,15 +124,15 @@
 
         <!-- Navigation Icon for Dropdown Menu on the right of EliteModder -->
         <img src="NavigationBar.png" alt="Menu Icon" class="nav-icon" id="navIcon" onclick="toggleDropdown()">
-
-        <!-- Horizontal Dropdown Menu for Small Screens (Initially Hidden) -->
-        <div class="dropdown-menu" id="dropdownMenu">
-            <a href="#" onclick="setActive('Home')">Home</a>
-            <a href="#" onclick="setActive('Games')">Games</a>
-            <a href="#" onclick="setActive('Mods')">Mods</a>
-            <a href="#" onclick="setActive('Plugins')">Plugins</a>
-        </div>
     </header>
+
+    <!-- New Main Menu below the header -->
+    <div class="main-menu">
+        <a href="#" onclick="setActive('Home')">Home</a>
+        <a href="#" onclick="setActive('Games')">Games</a>
+        <a href="#" onclick="setActive('Mods')">Mods</a>
+        <a href="#" onclick="setActive('Plugins')">Plugins</a>
+    </div>
 
     <script>
         function setActive(page) {
@@ -169,8 +167,6 @@
             if (width >= 768) {
                 desktopNav.style.display = "flex";  // Show desktop nav
                 navIcon.style.display = "none";     // Hide the navigation icon
-                const dropdownMenu = document.getElementById("dropdownMenu");
-                dropdownMenu.style.display = "none";  // Hide dropdown on larger screens
             } else {
                 desktopNav.style.display = "none";  // Hide desktop nav
                 navIcon.style.display = "block";    // Show the navigation icon
