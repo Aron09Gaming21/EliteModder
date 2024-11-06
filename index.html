@@ -48,7 +48,7 @@
 
         /* Navigation Icon (near EliteModder) */
         .nav-icon {
-            height: 60px; /* Icon size */
+            height: 60px; /* Increase size of icon */
             cursor: pointer;
             margin-left: 20px; /* Space between EliteModder and icon */
             display: none; /* Hidden by default, will be shown on smaller screens */
@@ -58,8 +58,9 @@
         .dropdown-menu {
             display: none; /* Hidden by default */
             position: absolute;
-            top: 60px;
-            right: 20px;
+            top: 70px; /* Adjust position below the icon */
+            left: 50%; /* Center horizontally */
+            transform: translateX(-50%); /* Center horizontally by shifting left by 50% of its width */
             background-color: #004080; /* Dark Blue color */
             border-radius: 5px;
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
