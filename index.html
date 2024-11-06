@@ -63,6 +63,7 @@
             height: 40px;
             cursor: pointer;
             margin-left: 15px;
+            display: none; /* Initially hidden */
         }
 
         /* Dropdown Menu Style */
@@ -94,7 +95,11 @@
         /* Responsive Design for Smaller Screens */
         @media (max-width: 768px) {
             .desktop-nav {
-                display: none;
+                display: none; /* Hide desktop nav on small screens */
+            }
+
+            .nav-icon {
+                display: block; /* Show the navigation icon on small screens */
             }
         }
     </style>
@@ -109,7 +114,7 @@
         </div>
 
         <!-- Desktop Navigation Options (Visible on Larger Screens) -->
-        <div class="desktop-nav">
+        <div class="desktop-nav" id="desktopNav">
             <a href="#" onclick="setActive('Home')">Home</a>
             <a href="#" onclick="setActive('Games')">Games</a>
             <a href="#" onclick="setActive('Mods')">Mods</a>
@@ -117,7 +122,7 @@
         </div>
 
         <!-- Navigation Icon for Dropdown Menu on Smaller Screens -->
-        <img src="NavigationBar.png" alt="Menu Icon" class="nav-icon" onclick="toggleDropdown()">
+        <img src="NavigationBar.png" alt="Menu Icon" class="nav-icon" id="navIcon" onclick="toggleDropdown()">
 
         <!-- Dropdown Menu (Initially Hidden) -->
         <div class="dropdown-menu" id="dropdownMenu">
@@ -142,10 +147,33 @@
         // Close dropdown if clicked outside
         window.onclick = function(event) {
             const dropdownMenu = document.getElementById("dropdownMenu");
-            if (!event.target.matches('.nav-icon')) {
+            const navIcon = document.getElementById("navIcon");
+            if (!event.target.matches('.nav-icon') && !event.target.matches('.dropdown-menu') && !event.target.matches('.dropdown-menu a')) {
                 dropdownMenu.style.display = "none";
             }
         }
+
+        // Adjust visibility based on window size
+        window.onresize = function() {
+            adjustLayout();
+        };
+
+        function adjustLayout() {
+            const width = window.innerWidth;
+            const desktopNav = document.getElementById("desktopNav");
+            const navIcon = document.getElementById("navIcon");
+
+            if (width >= 768) {
+                desktopNav.style.display = "flex";  // Show desktop nav
+                navIcon.style.display = "none";     // Hide the navigation icon
+            } else {
+                desktopNav.style.display = "none";  // Hide desktop nav
+                navIcon.style.display = "block";    // Show the navigation icon
+            }
+        }
+
+        // Run adjustLayout on initial load to ensure proper visibility
+        adjustLayout();
     </script>
 </body>
 </html>
