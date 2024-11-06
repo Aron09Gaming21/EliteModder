@@ -59,25 +59,25 @@
             font-size: 28px; /* Increased font size */
         }
 
-        /* New Menu Style Below the Header */
-        .main-menu {
+        /* New Menu Style Below the Header (Mobile version) */
+        .mobile-nav {
             background-color: #0096FF;
-            padding: 15px 0;
-            display: flex;
+            padding: 10px 0;
+            display: none;  /* Hidden by default */
             justify-content: center;
             align-items: center;
-            gap: 60px;
-            height: 60px;  /* Slightly longer than the header */
+            gap: 40px;
+            height: 60px;
         }
 
-        .main-menu a {
+        .mobile-nav a {
             text-decoration: none;
             color: white;
             font-weight: bold;
             font-size: 24px;
         }
 
-        .main-menu a:hover {
+        .mobile-nav a:hover {
             text-decoration: underline;
         }
 
@@ -87,20 +87,16 @@
                 display: none; /* Hide desktop nav on small screens */
             }
 
+            .mobile-nav {
+                display: flex; /* Show mobile nav on small screens */
+            }
+
+            /* Navigation Icon */
             .nav-icon {
                 display: block; /* Show the navigation icon on small screens */
-            }
-
-            /* Adjust the layout of the menu for smaller screens */
-            .main-menu {
-                flex-direction: column;
-                gap: 10px;
-                height: auto;
-                padding: 10px;
-            }
-
-            .main-menu a {
-                font-size: 20px;
+                height: 40px;
+                cursor: pointer;
+                margin-left: 20px;
             }
         }
     </style>
@@ -122,12 +118,12 @@
             <a href="#" onclick="setActive('Plugins')">Plugins</a>
         </div>
 
-        <!-- Navigation Icon for Dropdown Menu on the right of EliteModder -->
+        <!-- Navigation Icon for Dropdown Menu on small screens -->
         <img src="NavigationBar.png" alt="Menu Icon" class="nav-icon" id="navIcon" onclick="toggleDropdown()">
     </header>
 
-    <!-- New Main Menu below the header -->
-    <div class="main-menu">
+    <!-- Mobile Navigation Menu below the header (visible on small screens) -->
+    <div class="mobile-nav" id="mobileNav">
         <a href="#" onclick="setActive('Home')">Home</a>
         <a href="#" onclick="setActive('Games')">Games</a>
         <a href="#" onclick="setActive('Mods')">Mods</a>
@@ -140,18 +136,8 @@
         }
 
         function toggleDropdown() {
-            // Toggle the display of the dropdown menu
-            const dropdownMenu = document.getElementById("dropdownMenu");
-            dropdownMenu.style.display = dropdownMenu.style.display === "block" ? "none" : "block";
-        }
-
-        // Close dropdown if clicked outside
-        window.onclick = function(event) {
-            const dropdownMenu = document.getElementById("dropdownMenu");
-            const navIcon = document.getElementById("navIcon");
-            if (!event.target.matches('.nav-icon') && !event.target.matches('.dropdown-menu') && !event.target.matches('.dropdown-menu a')) {
-                dropdownMenu.style.display = "none";
-            }
+            const mobileNav = document.getElementById("mobileNav");
+            mobileNav.style.display = mobileNav.style.display === "flex" ? "none" : "flex";
         }
 
         // Adjust visibility based on window size
@@ -162,13 +148,16 @@
         function adjustLayout() {
             const width = window.innerWidth;
             const desktopNav = document.getElementById("desktopNav");
+            const mobileNav = document.getElementById("mobileNav");
             const navIcon = document.getElementById("navIcon");
 
             if (width >= 768) {
                 desktopNav.style.display = "flex";  // Show desktop nav
+                mobileNav.style.display = "none";   // Hide mobile nav
                 navIcon.style.display = "none";     // Hide the navigation icon
             } else {
                 desktopNav.style.display = "none";  // Hide desktop nav
+                mobileNav.style.display = "flex";   // Show mobile nav
                 navIcon.style.display = "block";    // Show the navigation icon
             }
         }
