@@ -19,19 +19,18 @@
             background: #0096FF;
             color: white;
             padding: 10px 20px;
-            height: 60px; /* Reverting to original height */
+            height: 60px; /* Keeps the header compact */
             display: flex;
             align-items: center;
             justify-content: space-between;
             position: relative;
-            z-index: 2;
         }
 
-        /* Logo, Title, and Navigation Icon */
+        /* Logo and Title */
         .header-left {
             display: flex;
             align-items: center;
-            gap: 15px;
+            gap: 15px; /* Space between logo and title */
         }
 
         .header-left img {
@@ -44,15 +43,6 @@
             margin: 0;
             font-size: 36px;
             font-family: 'Poppins', sans-serif;
-        }
-
-        /* Navigation Icon (Hamburger) Size and Alignment */
-        .mobile-menu {
-            display: none;
-            cursor: pointer;
-            height: 45px; /* Square size for balanced appearance */
-            width: 45px;
-            margin-left: 10px; /* Space between title and navigation icon */
         }
 
         /* Desktop Navigation */
@@ -68,55 +58,21 @@
             font-size: 24px;
         }
 
-        /* Mobile Dropdown Menu */
-        nav {
-            background-color: #90EE90;
-            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
-            display: none;
-            flex-direction: column;
-            position: absolute;
-            top: 60px;
-            left: 0;
-            width: 100%;
-            padding: 20px 0;
-            z-index: 1;
-            align-items: center;
-        }
-
-        .menu-items a {
-            text-decoration: none;
-            color: #333;
-            font-weight: bold;
-            font-size: 26px;
-            padding: 15px 0;
-            width: 100%;
-            text-align: center;
-        }
-
-        /* Responsive Design for Mobile */
+        /* Responsive Design for Smaller Screens */
         @media (max-width: 768px) {
-            .mobile-menu {
-                display: block;
-            }
             .desktop-nav {
-                display: none;
-            }
-            nav.active {
-                display: flex;
+                display: none; /* Hide desktop nav on small screens */
             }
         }
-
     </style>
 </head>
 <body>
-    <!-- Header with Logo, Title, and Navigation Icon -->
+    <!-- Header with Logo and Title -->
     <header>
-        <!-- Left section for Logo, Title, and Navigation Icon -->
+        <!-- Left section for Logo and Title -->
         <div class="header-left">
             <img src="EM Logo.png" alt="EliteModder Logo">
             <h1>EliteModder</h1>
-            <!-- Navigation Icon on Left for Mobile -->
-            <img src="NavigationBar.png" class="mobile-menu" alt="Navigation Menu" onclick="toggleMenu()">
         </div>
 
         <!-- Desktop Navigation Options (Visible on Larger Screens) -->
@@ -128,32 +84,10 @@
         </div>
     </header>
 
-    <!-- Dropdown Menu for Mobile -->
-    <nav class="menu-items">
-        <a href="#" onclick="setActive('Home')">Home</a>
-        <a href="#" onclick="setActive('Games')">Games</a>
-        <a href="#" onclick="setActive('Mods')">Mods</a>
-        <a href="#" onclick="setActive('Plugins')">Plugins</a>
-    </nav>
-
     <script>
         function setActive(page) {
             console.log(page + " page clicked");
         }
-
-        // Toggle the mobile menu visibility when hamburger icon is clicked
-        function toggleMenu() {
-            var nav = document.querySelector('nav');
-            nav.classList.toggle('active');
-        }
-
-        // Close the mobile menu when the window is resized back to large
-        window.addEventListener('resize', function() {
-            if (window.innerWidth > 768) {
-                var nav = document.querySelector('nav');
-                nav.classList.remove('active');
-            }
-        });
     </script>
 </body>
 </html>
