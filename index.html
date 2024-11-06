@@ -4,26 +4,226 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>EliteModder</title>
-    <!-- Adding the image as the favicon (tab icon) -->
-    <link rel="icon" href="EM Logo.png" type="image/png">
+    <link rel="icon" href="EM Logo.png" type="image/png"> <!-- Favicon link -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@700&display=swap" rel="stylesheet">
     <style>
         body {
-            background-color: lightblue; /* Set the background color to light blue */
-            margin: 0;
-            height: 100vh; /* Make the body fill the entire viewport */
-            display: flex;
-            justify-content: center; /* Center horizontally */
-            align-items: center; /* Center vertically */
             font-family: Arial, sans-serif;
+            background-color: #ffffff;
+            color: #333;
+            text-align: center;
+            padding: 0;
+            margin: 0;
+        }
+        header {
+            background: #0096FF;
+            color: white;
+            padding: 5px 0;
+            height: 60px;
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        header img {
+            height: 40px;
+            position: absolute;
+            left: 20px;
+            top: 50%;
+            transform: translateY(-50%);
+            cursor: pointer;
+        }
+        header h1 {
+            font-weight: bold;
+            margin: 0;
+            font-size: 36px;
+            font-family: 'Poppins', sans-serif;
+            background: linear-gradient(45deg, #ff0000, #ff7300, #fffb00, #48ff00);
+            background-size: 200%;
+            background-clip: text;
+            -webkit-background-clip: text;
+            color: transparent;
+            animation: gradientMove 2s infinite linear alternate;
+        }
+        @keyframes gradientMove {
+            0% {
+                background-position: 0% 50%;
+            }
+            100% {
+                background-position: 100% 50%;
+            }
         }
 
-        h1 {
-            font-size: 3em; /* Set the font size of the heading */
-            color: darkblue; /* Set the text color to dark blue */
+        /* Galaxy Background Animation for Dropdown Menu */
+        @keyframes galaxyGradient {
+            0% {
+                background-color: #e54ed0;
+            }
+            33% {
+                background-color: #9f45b0;
+            }
+            66% {
+                background-color: #44008b;
+            }
+            100% {
+                background-color: #00076f;
+            }
+        }
+
+        #dropdownMenu {
+            display: none;
+            position: absolute;
+            top: 60px;
+            left: 20px;
+            background: #e54ed0;
+            animation: galaxyGradient 5s infinite alternate;
+            box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.2);
+            border-radius: 5px;
+            z-index: 1;
+            width: 150px;
+        }
+        #dropdownMenu ul {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+        }
+        #dropdownMenu ul li {
+            padding: 10px;
+            text-align: left;
+        }
+        #dropdownMenu ul li a {
+            text-decoration: none;
+            color: white;
+            font-weight: bold;
+            display: block;
+            padding: 5px 10px;
+        }
+        #dropdownMenu ul li a:hover, 
+        #dropdownMenu ul li.selected a {
+            background-color: #333333;
+            color: white;
+            border-radius: 5px;
+        }
+
+        /* Hero Section Styling */
+        #hero {
+            background-color: #f0f0f0; /* Light background for contrast */
+            padding: 50px 20px;
+            text-align: center;
+            border-bottom: 2px solid #0096FF; /* Add a bottom border for emphasis */
+        }
+
+        #hero h2 {
+            font-size: 36px;
+            color: #333;
+            margin: 0;
+        }
+
+        #hero p {
+            font-size: 18px;
+            color: #666;
+            margin: 20px 0;
+        }
+
+        #hero button {
+            background-color: #0096FF; /* Button color */
+            color: white; /* Text color */
+            padding: 10px 20px;
+            font-size: 18px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        #hero button:hover {
+            background-color: #007acc; /* Darker shade on hover */
+        }
+
+        /* Main content styling */
+        main {
+            margin-top: 20px;
         }
     </style>
 </head>
 <body>
-    <h1>EliteModder</h1>
+    <header>
+        <img src="NavigationBar.png" alt="Navigation Bar Logo" onclick="toggleMenu()"> <!-- Changed to NavigationBar.png -->
+        <h1>EliteModder</h1>
+        <div id="dropdownMenu">
+            <ul>
+                <li class="selected"><a href="#" onclick="setActive(this, 'Home')">Home</a></li>
+                <li><a href="#" onclick="setActive(this, 'Games')">Games</a></li>
+                <li><a href="#" onclick="setActive(this, 'Mods')">Mods</a></li>
+                <li><a href="#" onclick="setActive(this, 'Plugins')">Plugins</a></li>
+            </ul>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section id="hero">
+        <h2>Welcome to EliteModder!</h2>
+        <p>Join our vibrant community of gamers and modders. Discover amazing games, explore custom mods, and enhance your gameplay with our premium and free plugins!</p>
+        <button onclick="setActive(this, 'Games')">Shop Now</button>
+    </section>
+
+    <main id="content">
+        <p>Welcome to EliteModder! Your ultimate destination for the best games, mods, and plugins that elevate your gaming experience!</p>
+    </main>
+    
+    <footer>
+        <p>&copy; 2024 EliteModder by Aron09Gaming21</p>
+    </footer>
+
+    <script>
+        function toggleMenu() {
+            var menu = document.getElementById("dropdownMenu");
+            if (menu.style.display === "none" || menu.style.display === "") {
+                menu.style.display = "block";
+            } else {
+                menu.style.display = "none";
+            }
+        }
+
+        // Set active menu item and update page content
+        function setActive(element, page) {
+            // Remove "selected" class from all menu items
+            var items = document.querySelectorAll("#dropdownMenu ul li");
+            items.forEach(function(item) {
+                item.classList.remove("selected");
+            });
+
+            // Add "selected" class to the clicked item
+            if (page === "Games") {
+                items[1].classList.add("selected"); // Highlight Games
+            } else if (page === "Home") {
+                items[0].classList.add("selected"); // Highlight Home
+            } else if (page === "Mods") {
+                items[2].classList.add("selected"); // Highlight Mods
+            } else if (page === "Plugins") {
+                items[3].classList.add("selected"); // Highlight Plugins
+            }
+
+            // Update main content based on the selected page
+            var content = document.getElementById("content");
+            if (page === "Home") {
+                content.innerHTML = "<p>Join our vibrant community of gamers and modders. Discover amazing games, explore custom mods, and enhance your gameplay with our premium and free plugins!</p>";
+            } else if (page === "Games") {
+                content.innerHTML = "<p>Welcome to the Games page. Discover new games and game-related content here.</p>";
+            } else if (page === "Mods") {
+                content.innerHTML = "<p>Welcome to the Mods page. Explore a variety of mods to enhance your gaming experience.</p>";
+            } else if (page === "Plugins") {
+                content.innerHTML = "<p>Welcome to the Plugins page. Find plugins and tools to customize your games.</p>";
+            }
+        }
+
+        document.addEventListener("click", function(event) {
+            var menu = document.getElementById("dropdownMenu");
+            var logo = document.querySelector("header img");
+            if (event.target !== menu && event.target !== logo) {
+                menu.style.display = "none";
+            }
+        });
+    </script>
 </body>
 </html>
