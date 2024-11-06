@@ -42,16 +42,16 @@
         .header-left h1 {
             font-weight: bold;
             margin: 0;
-            font-size: 36px;
+            font-size: 28px; /* Smaller font size for "EliteModder" */
             font-family: 'Poppins', sans-serif;
         }
 
         /* Navigation Icon (on the right of EliteModder) */
         .nav-icon {
-            height: 60px; /* Icon size */
+            height: 40px; /* Adjust icon size */
             cursor: pointer;
             margin-left: 20px; /* Space between EliteModder and icon */
-            display: block; /* Show the icon on all screen sizes */
+            display: none; /* Hide by default */
         }
 
         /* Desktop Navigation */
@@ -112,6 +112,14 @@
         <div class="header-left">
             <img src="EM Logo.png" alt="EliteModder Logo">
             <h1>EliteModder</h1>
+        </div>
+
+        <!-- Desktop Navigation Links -->
+        <div class="desktop-nav" id="desktopNav">
+            <a href="#" onclick="setActive('Home')">Home</a>
+            <a href="#" onclick="setActive('Games')">Games</a>
+            <a href="#" onclick="setActive('Mods')">Mods</a>
+            <a href="#" onclick="setActive('Plugins')">Plugins</a>
         </div>
 
         <!-- Navigation Icon for Dropdown Menu on the right of EliteModder -->
