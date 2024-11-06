@@ -14,7 +14,7 @@
             margin: 0;
         }
         header {
-            background: #0096FF;
+            background: #0096FF; /* Blue header */
             color: white;
             padding: 10px 20px;
             height: 60px;
@@ -48,7 +48,7 @@
             text-decoration: underline;
         }
 
-        /* Hide navigation links and show the hamburger icon on small screens */
+        /* Mobile Menu */
         .mobile-menu {
             display: none;
         }
@@ -57,15 +57,15 @@
             gap: 60px;
         }
 
-        /* Toggle menu visibility */
+        /* The mobile menu when active */
         .menu-items.active {
             display: block;
             position: absolute;
-            top: 60px; /* Position below the icon */
-            left: 50%; /* Position the left edge of the menu in the center */
-            transform: translateX(-50%); /* Move the menu back to center */
-            width: 200px; /* Smaller width for the mobile menu */
-            background-color: #0096FF;
+            top: 60px; /* Position it just below the blue header */
+            left: 50%; /* Center it horizontally */
+            transform: translateX(-50%); /* Move it back to the center */
+            width: 300px; /* Wider than the previous example */
+            background-color: #90EE90; /* Light green background */
             box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
             z-index: 1;
             border-radius: 5px;
