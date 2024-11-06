@@ -67,26 +67,26 @@
             font-size: 28px; /* Increased font size */
         }
 
-        /* Dropdown Menu Style */
+        /* Horizontal Dropdown Menu for Small Screens (Visible below the header) */
         .dropdown-menu {
             display: none;
-            position: absolute;
-            top: 60px;
-            right: 20px;
+            position: relative;
+            top: 0;
             background-color: #004080; /* Dark Blue color */
-            border-radius: 5px;
+            width: 100%; /* Full width */
+            text-align: center;
+            padding: 10px 0;
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-            width: 150px;
             z-index: 1000;
         }
 
         .dropdown-menu a {
-            display: block;
+            display: inline-block;
             color: white;
-            padding: 10px;
+            padding: 15px 25px; /* Larger padding for bigger buttons */
             text-decoration: none;
-            font-size: 20px;
-            text-align: center;
+            font-size: 24px;
+            font-weight: bold;
         }
 
         .dropdown-menu a:hover {
@@ -125,7 +125,7 @@
         <!-- Navigation Icon for Dropdown Menu on the right of EliteModder -->
         <img src="NavigationBar.png" alt="Menu Icon" class="nav-icon" id="navIcon" onclick="toggleDropdown()">
 
-        <!-- Dropdown Menu (Initially Hidden) -->
+        <!-- Horizontal Dropdown Menu for Small Screens (Initially Hidden) -->
         <div class="dropdown-menu" id="dropdownMenu">
             <a href="#" onclick="setActive('Home')">Home</a>
             <a href="#" onclick="setActive('Games')">Games</a>
@@ -167,6 +167,8 @@
             if (width >= 768) {
                 desktopNav.style.display = "flex";  // Show desktop nav
                 navIcon.style.display = "none";     // Hide the navigation icon
+                const dropdownMenu = document.getElementById("dropdownMenu");
+                dropdownMenu.style.display = "none";  // Hide dropdown on larger screens
             } else {
                 desktopNav.style.display = "none";  // Hide desktop nav
                 navIcon.style.display = "block";    // Show the navigation icon
