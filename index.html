@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>EliteModder</title>
-    <link rel="icon" href="EM Logo.png" type="image/png"> <!-- Favicon link -->
+    <link rel="icon" href="EM Logo.png" type="image/png">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@700&display=swap" rel="stylesheet">
     <style>
         body {
@@ -16,10 +16,10 @@
 
         /* Header Style */
         header {
-            background: #0096FF; /* Blue header */
+            background: #0096FF;
             color: white;
             padding: 10px 20px;
-            height: 80px;
+            height: 60px; /* Reverting to original height */
             display: flex;
             align-items: center;
             justify-content: space-between;
@@ -27,11 +27,11 @@
             z-index: 2;
         }
 
-        /* Logo and Title on the Left */
+        /* Logo, Title, and Navigation Icon */
         .header-left {
             display: flex;
             align-items: center;
-            gap: 15px; /* Space between logo and title */
+            gap: 15px;
         }
 
         .header-left img {
@@ -42,21 +42,30 @@
         .header-left h1 {
             font-weight: bold;
             margin: 0;
-            font-size: 40px; /* Larger font size for title */
+            font-size: 36px;
             font-family: 'Poppins', sans-serif;
         }
 
-        /* Desktop Navigation Style in Header */
+        /* Navigation Icon (Hamburger) Size and Alignment */
+        .mobile-menu {
+            display: none;
+            cursor: pointer;
+            height: 45px; /* Square size for balanced appearance */
+            width: 45px;
+            margin-left: 10px; /* Space between title and navigation icon */
+        }
+
+        /* Desktop Navigation */
         .desktop-nav {
             display: flex;
-            gap: 60px; /* Increased space between options */
+            gap: 40px;
         }
 
         .desktop-nav a {
             text-decoration: none;
             color: white;
             font-weight: bold;
-            font-size: 26px; /* Increased font size */
+            font-size: 24px;
         }
 
         /* Mobile Dropdown Menu */
@@ -66,7 +75,7 @@
             display: none;
             flex-direction: column;
             position: absolute;
-            top: 80px;
+            top: 60px;
             left: 0;
             width: 100%;
             padding: 20px 0;
@@ -82,14 +91,6 @@
             padding: 15px 0;
             width: 100%;
             text-align: center;
-        }
-
-        /* Mobile Menu Icon (Hamburger) */
-        .mobile-menu {
-            display: none;
-            cursor: pointer;
-            height: 60px; /* Significantly larger icon */
-            width: 60px;  /* Width for balanced proportions */
         }
 
         /* Responsive Design for Mobile */
@@ -108,12 +109,14 @@
     </style>
 </head>
 <body>
-    <!-- Header with Logo, Title, and Navigation -->
+    <!-- Header with Logo, Title, and Navigation Icon -->
     <header>
-        <!-- Left section for Logo and Title -->
+        <!-- Left section for Logo, Title, and Navigation Icon -->
         <div class="header-left">
             <img src="EM Logo.png" alt="EliteModder Logo">
             <h1>EliteModder</h1>
+            <!-- Navigation Icon on Left for Mobile -->
+            <img src="NavigationBar.png" class="mobile-menu" alt="Navigation Menu" onclick="toggleMenu()">
         </div>
 
         <!-- Desktop Navigation Options (Visible on Larger Screens) -->
@@ -123,9 +126,6 @@
             <a href="#" onclick="setActive('Mods')">Mods</a>
             <a href="#" onclick="setActive('Plugins')">Plugins</a>
         </div>
-
-        <!-- Mobile Menu Icon (Hamburger) on the right -->
-        <img src="NavigationBar.png" class="mobile-menu" alt="Navigation Menu" onclick="toggleMenu()">
     </header>
 
     <!-- Dropdown Menu for Mobile -->
