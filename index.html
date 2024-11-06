@@ -42,7 +42,7 @@
         /* Navigation Menu Positioned Directly Below the Header */
         nav {
             background-color: #90EE90; /* Light green background for the menu */
-            padding: 10px 20px;
+            padding: 20px 0; /* Add padding for spacing */
             box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
             display: none; /* Hide menu by default */
             flex-direction: column; /* Align menu items vertically */
@@ -51,6 +51,8 @@
             left: 0;
             width: 100%;
             z-index: 1; /* Ensures the menu is below the header but above other content */
+            min-height: 300px; /* Makes the menu extend further down */
+            align-items: center; /* Centers the menu content */
         }
 
         .menu-items {
@@ -63,8 +65,8 @@
             text-decoration: none;
             color: white;
             font-weight: bold;
-            font-size: 24px;
-            padding: 10px;
+            font-size: 28px; /* Larger font size for navigation items */
+            padding: 20px; /* Increase padding for more space */
             width: 100%; /* Make the links take full width */
             text-align: center;
         }
