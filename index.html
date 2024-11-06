@@ -46,21 +46,33 @@
             font-family: 'Poppins', sans-serif;
         }
 
-        /* Navigation Icon (near EliteModder) */
+        /* Navigation Icon (on the right of EliteModder) */
         .nav-icon {
-            height: 60px; /* Increase size of icon */
+            height: 60px; /* Icon size */
             cursor: pointer;
             margin-left: 20px; /* Space between EliteModder and icon */
-            display: none; /* Hidden by default, will be shown on smaller screens */
+            display: block; /* Show the icon on all screen sizes */
+        }
+
+        /* Desktop Navigation */
+        .desktop-nav {
+            display: flex;
+            gap: 60px; /* Increased space between options */
+        }
+
+        .desktop-nav a {
+            text-decoration: none;
+            color: white;
+            font-weight: bold;
+            font-size: 28px; /* Increased font size */
         }
 
         /* Dropdown Menu Style */
         .dropdown-menu {
-            display: none; /* Hidden by default */
+            display: none;
             position: absolute;
-            top: 70px; /* Adjust position below the icon */
-            left: 50%; /* Center horizontally */
-            transform: translateX(-50%); /* Center horizontally by shifting left by 50% of its width */
+            top: 60px;
+            right: 20px;
             background-color: #004080; /* Dark Blue color */
             border-radius: 5px;
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
@@ -81,19 +93,6 @@
             background-color: #003366; /* Darker blue on hover */
         }
 
-        /* Desktop Navigation (for large screens) */
-        .desktop-nav {
-            display: flex;
-            gap: 60px; /* Increased space between options */
-        }
-
-        .desktop-nav a {
-            text-decoration: none;
-            color: white;
-            font-weight: bold;
-            font-size: 28px; /* Increased font size */
-        }
-
         /* Responsive Design for Smaller Screens */
         @media (max-width: 768px) {
             .desktop-nav {
@@ -109,20 +108,14 @@
 <body>
     <!-- Header with Logo and Title -->
     <header>
-        <!-- Left section for Logo, Title, and Navigation Icon -->
+        <!-- Left section for Logo and Title -->
         <div class="header-left">
             <img src="EM Logo.png" alt="EliteModder Logo">
             <h1>EliteModder</h1>
-            <img src="NavigationBar.png" alt="Menu Icon" class="nav-icon" id="navIcon" onclick="toggleDropdown()">
         </div>
 
-        <!-- Desktop Navigation (Initially Hidden on Small Screens) -->
-        <div class="desktop-nav" id="desktopNav">
-            <a href="#" onclick="setActive('Home')">Home</a>
-            <a href="#" onclick="setActive('Games')">Games</a>
-            <a href="#" onclick="setActive('Mods')">Mods</a>
-            <a href="#" onclick="setActive('Plugins')">Plugins</a>
-        </div>
+        <!-- Navigation Icon for Dropdown Menu on the right of EliteModder -->
+        <img src="NavigationBar.png" alt="Menu Icon" class="nav-icon" id="navIcon" onclick="toggleDropdown()">
 
         <!-- Dropdown Menu (Initially Hidden) -->
         <div class="dropdown-menu" id="dropdownMenu">
@@ -166,11 +159,9 @@
             if (width >= 768) {
                 desktopNav.style.display = "flex";  // Show desktop nav
                 navIcon.style.display = "none";     // Hide the navigation icon
-                document.getElementById("dropdownMenu").style.display = "none"; // Hide dropdown on large screens
             } else {
                 desktopNav.style.display = "none";  // Hide desktop nav
                 navIcon.style.display = "block";    // Show the navigation icon
-                document.getElementById("dropdownMenu").style.display = "none"; // Ensure dropdown is closed
             }
         }
 
