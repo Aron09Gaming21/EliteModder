@@ -51,11 +51,12 @@
             height: 40px; /* Icon size */
             cursor: pointer;
             margin-left: 20px; /* Space between EliteModder and icon */
+            display: none; /* Hidden by default, will be shown on smaller screens */
         }
 
         /* Dropdown Menu Style */
         .dropdown-menu {
-            display: none;
+            display: none; /* Hidden by default */
             position: absolute;
             top: 60px;
             right: 20px;
@@ -79,10 +80,27 @@
             background-color: #003366; /* Darker blue on hover */
         }
 
+        /* Desktop Navigation (for large screens) */
+        .desktop-nav {
+            display: flex;
+            gap: 60px; /* Increased space between options */
+        }
+
+        .desktop-nav a {
+            text-decoration: none;
+            color: white;
+            font-weight: bold;
+            font-size: 28px; /* Increased font size */
+        }
+
         /* Responsive Design for Smaller Screens */
         @media (max-width: 768px) {
-            .dropdown-menu {
-                display: block; /* Show dropdown menu when navigation icon is clicked */
+            .desktop-nav {
+                display: none; /* Hide desktop nav on small screens */
+            }
+
+            .nav-icon {
+                display: block; /* Show the navigation icon on small screens */
             }
         }
     </style>
@@ -95,6 +113,14 @@
             <img src="EM Logo.png" alt="EliteModder Logo">
             <h1>EliteModder</h1>
             <img src="NavigationBar.png" alt="Menu Icon" class="nav-icon" id="navIcon" onclick="toggleDropdown()">
+        </div>
+
+        <!-- Desktop Navigation (Initially Hidden on Small Screens) -->
+        <div class="desktop-nav" id="desktopNav">
+            <a href="#" onclick="setActive('Home')">Home</a>
+            <a href="#" onclick="setActive('Games')">Games</a>
+            <a href="#" onclick="setActive('Mods')">Mods</a>
+            <a href="#" onclick="setActive('Plugins')">Plugins</a>
         </div>
 
         <!-- Dropdown Menu (Initially Hidden) -->
@@ -125,6 +151,30 @@
                 dropdownMenu.style.display = "none";
             }
         }
+
+        // Adjust visibility based on window size
+        window.onresize = function() {
+            adjustLayout();
+        };
+
+        function adjustLayout() {
+            const width = window.innerWidth;
+            const desktopNav = document.getElementById("desktopNav");
+            const navIcon = document.getElementById("navIcon");
+
+            if (width >= 768) {
+                desktopNav.style.display = "flex";  // Show desktop nav
+                navIcon.style.display = "none";     // Hide the navigation icon
+                document.getElementById("dropdownMenu").style.display = "none"; // Hide dropdown on large screens
+            } else {
+                desktopNav.style.display = "none";  // Hide desktop nav
+                navIcon.style.display = "block";    // Show the navigation icon
+                document.getElementById("dropdownMenu").style.display = "none"; // Ensure dropdown is closed
+            }
+        }
+
+        // Run adjustLayout on initial load to ensure proper visibility
+        adjustLayout();
     </script>
 </body>
 </html>
