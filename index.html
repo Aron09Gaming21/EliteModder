@@ -46,25 +46,11 @@
             font-family: 'Poppins', sans-serif;
         }
 
-        /* Navigation Icon (on the right of EliteModder) */
+        /* Navigation Icon (near EliteModder) */
         .nav-icon {
-            height: 60px; /* Icon size */
+            height: 40px; /* Icon size */
             cursor: pointer;
             margin-left: 20px; /* Space between EliteModder and icon */
-            display: block; /* Show the icon on all screen sizes */
-        }
-
-        /* Desktop Navigation */
-        .desktop-nav {
-            display: flex;
-            gap: 60px; /* Increased space between options */
-        }
-
-        .desktop-nav a {
-            text-decoration: none;
-            color: white;
-            font-weight: bold;
-            font-size: 28px; /* Increased font size */
         }
 
         /* Dropdown Menu Style */
@@ -95,12 +81,8 @@
 
         /* Responsive Design for Smaller Screens */
         @media (max-width: 768px) {
-            .desktop-nav {
-                display: none; /* Hide desktop nav on small screens */
-            }
-
-            .nav-icon {
-                display: block; /* Show the navigation icon on small screens */
+            .dropdown-menu {
+                display: block; /* Show dropdown menu when navigation icon is clicked */
             }
         }
     </style>
@@ -108,14 +90,12 @@
 <body>
     <!-- Header with Logo and Title -->
     <header>
-        <!-- Left section for Logo and Title -->
+        <!-- Left section for Logo, Title, and Navigation Icon -->
         <div class="header-left">
             <img src="EM Logo.png" alt="EliteModder Logo">
             <h1>EliteModder</h1>
+            <img src="NavigationBar.png" alt="Menu Icon" class="nav-icon" id="navIcon" onclick="toggleDropdown()">
         </div>
-
-        <!-- Navigation Icon for Dropdown Menu on the right of EliteModder -->
-        <img src="NavigationBar.png" alt="Menu Icon" class="nav-icon" id="navIcon" onclick="toggleDropdown()">
 
         <!-- Dropdown Menu (Initially Hidden) -->
         <div class="dropdown-menu" id="dropdownMenu">
@@ -145,28 +125,6 @@
                 dropdownMenu.style.display = "none";
             }
         }
-
-        // Adjust visibility based on window size
-        window.onresize = function() {
-            adjustLayout();
-        };
-
-        function adjustLayout() {
-            const width = window.innerWidth;
-            const desktopNav = document.getElementById("desktopNav");
-            const navIcon = document.getElementById("navIcon");
-
-            if (width >= 768) {
-                desktopNav.style.display = "flex";  // Show desktop nav
-                navIcon.style.display = "none";     // Hide the navigation icon
-            } else {
-                desktopNav.style.display = "none";  // Hide desktop nav
-                navIcon.style.display = "block";    // Show the navigation icon
-            }
-        }
-
-        // Run adjustLayout on initial load to ensure proper visibility
-        adjustLayout();
     </script>
 </body>
 </html>
