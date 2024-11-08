@@ -26,6 +26,19 @@
             position: relative;
         }
 
+        /* Social Media Icons on Left */
+        .social-icons {
+            position: absolute;
+            left: 20px; /* Align to the left side of the header */
+            display: flex;
+            gap: 15px;
+        }
+
+        .social-icons img {
+            height: 40px; /* Set size for the social media icons */
+            cursor: pointer;
+        }
+
         /* Centered Logo */
         .logo-center {
             height: 50px;
@@ -103,6 +116,16 @@
 <body>
     <!-- Header with Logo centered in the middle -->
     <header>
+        <!-- Left-aligned Social Media Icons -->
+        <div class="social-icons">
+            <a href="https://www.youtube.com/channel/UCUG5kLEI7G_Vq76bL5kwGcg" target="_blank">
+                <img src="YouTube Logo.png" alt="YouTube Logo">
+            </a>
+            <a href="https://www.tiktok.com/@aron09gaming21" target="_blank">
+                <img src="TikTok Logo.png" alt="TikTok Logo">
+            </a>
+        </div>
+
         <!-- Centered Logo -->
         <img src="EM Logo.png" alt="EliteModder Logo" class="logo-center">
 
