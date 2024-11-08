@@ -22,24 +22,24 @@
             height: 60px;
             display: flex;
             align-items: center;
-            justify-content: center; /* Center content in the header */
+            justify-content: center; /* Center logo in the middle of the header */
             position: relative;
         }
 
-        /* Logo centered in the header */
+        /* Centered Logo */
         .logo-center {
             height: 50px;
             cursor: pointer;
         }
 
-        /* Desktop Navigation (in the header) */
+        /* Desktop Navigation (aligned to the right of the header) */
         .desktop-nav {
             display: flex;
             gap: 60px;
             position: absolute;
             right: 20px; /* Position navigation to the right */
             top: 50%;
-            transform: translateY(-50%);
+            transform: translateY(-50%); /* Center vertically */
         }
 
         .desktop-nav a {
@@ -93,18 +93,20 @@
                 height: 50px;
                 cursor: pointer;
                 position: absolute;
-                right: 20px;
+                right: 20px; /* Align to the right */
+                top: 50%;
+                transform: translateY(-50%); /* Center vertically */
             }
         }
     </style>
 </head>
 <body>
-    <!-- Header with Logo centered -->
+    <!-- Header with Logo centered in the middle -->
     <header>
         <!-- Centered Logo -->
         <img src="EM Logo.png" alt="EliteModder Logo" class="logo-center">
 
-        <!-- Desktop Navigation Links positioned to the right -->
+        <!-- Desktop Navigation Links aligned to the right -->
         <div class="desktop-nav" id="desktopNav">
             <a href="#" onclick="setActive('Home')">Home</a>
             <a href="#" onclick="setActive('Games')">Games</a>
