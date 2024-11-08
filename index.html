@@ -22,34 +22,24 @@
             height: 60px;
             display: flex;
             align-items: center;
-            justify-content: space-between;
+            justify-content: center; /* Center content in the header */
             position: relative;
         }
 
-        /* Logo and Title Container (Left Side) */
-        .header-left {
-            display: flex;
-            align-items: center;
-            gap: 15px;
-            flex-grow: 1;
-        }
-
-        .header-left img {
+        /* Logo centered in the header */
+        .logo-center {
             height: 50px;
             cursor: pointer;
-        }
-
-        .header-left h1 {
-            font-weight: bold;
-            margin: 0;
-            font-size: 28px;
-            font-family: 'Poppins', sans-serif;
         }
 
         /* Desktop Navigation (in the header) */
         .desktop-nav {
             display: flex;
             gap: 60px;
+            position: absolute;
+            right: 20px; /* Position navigation to the right */
+            top: 50%;
+            transform: translateY(-50%);
         }
 
         .desktop-nav a {
@@ -102,21 +92,19 @@
                 display: block;
                 height: 50px;
                 cursor: pointer;
-                margin-left: 20px;
+                position: absolute;
+                right: 20px;
             }
         }
     </style>
 </head>
 <body>
-    <!-- Header with Logo and Title -->
+    <!-- Header with Logo centered -->
     <header>
-        <!-- Left section for Logo and Title -->
-        <div class="header-left">
-            <img src="EM Logo.png" alt="EliteModder Logo">
-            <h1>EliteModder</h1>
-        </div>
+        <!-- Centered Logo -->
+        <img src="EM Logo.png" alt="EliteModder Logo" class="logo-center">
 
-        <!-- Desktop Navigation Links -->
+        <!-- Desktop Navigation Links positioned to the right -->
         <div class="desktop-nav" id="desktopNav">
             <a href="#" onclick="setActive('Home')">Home</a>
             <a href="#" onclick="setActive('Games')">Games</a>
@@ -138,7 +126,7 @@
 
     <!-- Main Content Area -->
     <div class="content">
-        <!-- Content is now empty as requested -->
+        <!-- Content is empty as requested -->
     </div>
 
     <script>
