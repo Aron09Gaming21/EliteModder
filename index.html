@@ -129,12 +129,12 @@
     <header>
         <!-- Left-aligned Social Media Icons with Labels -->
         <div class="social-icons">
-            <a href="https://www.youtube.com/channel/UCUG5kLEI7G_Vq76bL5kwGcg" target="_blank">
-                <img src="YouTube Logo.png" alt="YouTube Logo">
+            <a href="https://www.youtube.com/channel/UCUG5kLEI7G_Vq76bL5kwGcg" target="_blank" id="youtubeLink">
+                <img src="YouTube Logo.png" alt="YouTube Logo" id="youtubeLogo">
                 <span>YouTube</span>
             </a>
-            <a href="https://www.tiktok.com/@aron09gaming21" target="_blank">
-                <img src="TikTok Logo.png" alt="TikTok Logo">
+            <a href="https://www.tiktok.com/@aron09gaming21" target="_blank" id="tiktokLink">
+                <img src="TikTok Logo.png" alt="TikTok Logo" id="tiktokLogo">
                 <span>TikTok</span>
             </a>
         </div>
@@ -181,7 +181,18 @@
             }
         }
 
-        // Adjust visibility based on window size
+        // Check if each image exists, and hide parent link if not
+        function checkSocialIcons() {
+            const youtubeLogo = document.getElementById("youtubeLogo");
+            const tiktokLogo = document.getElementById("tiktokLogo");
+            const youtubeLink = document.getElementById("youtubeLink");
+            const tiktokLink = document.getElementById("tiktokLink");
+
+            youtubeLogo.onerror = () => youtubeLink.style.display = "none";
+            tiktokLogo.onerror = () => tiktokLink.style.display = "none";
+        }
+
+        // Adjust layout on window resize
         window.onresize = function() {
             adjustLayout();
         };
@@ -203,8 +214,9 @@
             }
         }
 
-        // Run adjustLayout on initial load
+        // Initial function calls
         adjustLayout();
+        checkSocialIcons();
     </script>
 </body>
 </html>
