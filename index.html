@@ -26,12 +26,23 @@
             position: relative;
         }
 
-        /* Social Media Icons on Left */
+        /* Social Media Links with Logo and Text */
         .social-icons {
             position: absolute;
             left: 20px; /* Align to the left side of the header */
             display: flex;
+            align-items: center;
             gap: 15px;
+        }
+
+        .social-icons a {
+            display: flex;
+            align-items: center;
+            text-decoration: none;
+            color: white;
+            font-weight: bold;
+            font-size: 16px;
+            gap: 5px;
         }
 
         .social-icons img {
@@ -116,13 +127,15 @@
 <body>
     <!-- Header with Logo centered in the middle -->
     <header>
-        <!-- Left-aligned Social Media Icons -->
+        <!-- Left-aligned Social Media Icons with Labels -->
         <div class="social-icons">
             <a href="https://www.youtube.com/channel/UCUG5kLEI7G_Vq76bL5kwGcg" target="_blank">
                 <img src="YouTube Logo.png" alt="YouTube Logo">
+                <span>YouTube</span>
             </a>
             <a href="https://www.tiktok.com/@aron09gaming21" target="_blank">
                 <img src="TikTok Logo.png" alt="TikTok Logo">
+                <span>TikTok</span>
             </a>
         </div>
 
