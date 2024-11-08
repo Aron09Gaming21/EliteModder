@@ -9,7 +9,7 @@
     <style>
         body {
             font-family: Arial, sans-serif;
-            background-color: #ffffff;
+            background-color: #003366; /* Dark blue color for the page background */
             color: #333;
             margin: 0;
         }
@@ -31,7 +31,7 @@
             display: flex;
             align-items: center;
             gap: 15px;
-            flex-grow: 1; /* Ensure this section takes up remaining space */
+            flex-grow: 1;
         }
 
         .header-left img {
@@ -42,28 +42,28 @@
         .header-left h1 {
             font-weight: bold;
             margin: 0;
-            font-size: 28px; /* Smaller font size for "EliteModder" */
+            font-size: 28px;
             font-family: 'Poppins', sans-serif;
         }
 
         /* Desktop Navigation (in the header) */
         .desktop-nav {
             display: flex;
-            gap: 60px; /* Increased space between options */
+            gap: 60px;
         }
 
         .desktop-nav a {
             text-decoration: none;
             color: white;
             font-weight: bold;
-            font-size: 28px; /* Increased font size */
+            font-size: 28px;
         }
 
         /* New Menu Style Below the Header (Mobile version) */
         .mobile-nav {
-            background-color: #003366;  /* Dark blue color */
+            background-color: #003366;
             padding: 10px 0;
-            display: none;  /* Hidden by default */
+            display: none;
             justify-content: center;
             align-items: center;
             gap: 40px;
@@ -74,27 +74,33 @@
             text-decoration: none;
             color: white;
             font-weight: bold;
-            font-size: 20px; /* Smaller font size for the options */
+            font-size: 20px;
         }
 
         .mobile-nav a:hover {
             text-decoration: underline;
         }
 
+        /* Main Content Area Styling */
+        .content {
+            padding: 20px;
+            color: white; /* Contrast color for text */
+        }
+
         /* Responsive Design for Smaller Screens */
         @media (max-width: 768px) {
             .desktop-nav {
-                display: none; /* Hide desktop nav on small screens */
+                display: none;
             }
 
             .mobile-nav {
-                display: flex; /* Show mobile nav on small screens */
+                display: flex;
             }
 
             /* Navigation Icon */
             .nav-icon {
-                display: block; /* Show the navigation icon on small screens */
-                height: 50px;  /* Increased size for the icon */
+                display: block;
+                height: 50px;
                 cursor: pointer;
                 margin-left: 20px;
             }
@@ -130,6 +136,11 @@
         <a href="#" onclick="setActive('Plugins')">Plugins</a>
     </div>
 
+    <!-- Main Content Area -->
+    <div class="content">
+        <p>Welcome to EliteModder! Here you can find the latest mods, games, and plugins.</p>
+    </div>
+
     <script>
         function setActive(page) {
             console.log(page + " page clicked");
@@ -137,11 +148,10 @@
 
         function toggleDropdown() {
             const mobileNav = document.getElementById("mobileNav");
-            // Toggle the mobile navigation visibility
             if (mobileNav.style.display === "flex") {
-                mobileNav.style.display = "none";  // Close menu
+                mobileNav.style.display = "none";
             } else {
-                mobileNav.style.display = "flex";  // Open menu
+                mobileNav.style.display = "flex";
             }
         }
 
@@ -157,17 +167,17 @@
             const navIcon = document.getElementById("navIcon");
 
             if (width >= 768) {
-                desktopNav.style.display = "flex";  // Show desktop nav
-                mobileNav.style.display = "none";   // Hide mobile nav
-                navIcon.style.display = "none";     // Hide the navigation icon
+                desktopNav.style.display = "flex";
+                mobileNav.style.display = "none";
+                navIcon.style.display = "none";
             } else {
-                desktopNav.style.display = "none";  // Hide desktop nav
-                mobileNav.style.display = "none";   // Hide mobile nav (by default)
-                navIcon.style.display = "block";    // Show the navigation icon
+                desktopNav.style.display = "none";
+                mobileNav.style.display = "none";
+                navIcon.style.display = "block";
             }
         }
 
-        // Run adjustLayout on initial load to ensure proper visibility
+        // Run adjustLayout on initial load
         adjustLayout();
     </script>
 </body>
